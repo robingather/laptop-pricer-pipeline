@@ -1,0 +1,21 @@
+{
+ "steps": [
+  {
+       "name": "gcr.io/cloud-builders/gsutil",
+       "args": [
+           "cp",           
+		   "gs://data_rgather/parameters.json",
+           "."
+        ]
+   },
+   {
+       "name": "gcr.io/$PROJECT_ID/pipline_executor:0.0.1",
+       "args": [
+           "--name=laptop-pricer-pipeline",           
+		   "--pipeline_def=./laptop_pricer_training_pipeline.json",
+           "--pipeline_root=gs://temp_rgather",         
+		   "--parameter_dict=./parameters.json"
+        ]
+   }
+   ]
+ }
