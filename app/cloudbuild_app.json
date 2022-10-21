@@ -40,6 +40,8 @@
           "managed",
           "--allow-unauthenticated",
           "--no-cpu-throttling",
+          "--update-env-vars",
+          "PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_rgather,MODEL_NAME=laptop_pricer_model.pkl",
           "--memory",
           "4 Gi"
         ]
