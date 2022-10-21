@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, jsonify
 from laptop_pricer import LaptopPricePredictor
 import pandas as pd
 import json
+import sys
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -26,18 +27,18 @@ def predict_str():
 @app.route('/price_laptop', methods=["GET", "POST"])
 def check_diabetes():
     if request.method == "POST":
-        print(request.form.get("Company"))
-        print(request.form.get("TypeName"))
-        print(request.form.get("Ram"))
-        print(request.form.get("Weight"))
-        print(request.form.get("TouchScreen"))
-        print(request.form.get("IPS"))
-        print(request.form.get("PPI"))
-        print(request.form.get("Cpu_brand"))
-        print(request.form.get("HDD"))
-        print(request.form.get("SSD"))
-        print(request.form.get("Gpu_brand"))
-        print(request.form.get("os"))
+        print(request.form.get("Company"), file=sys.stderr)
+        print(request.form.get("TypeName"), file=sys.stderr)
+        print(request.form.get("Ram"), file=sys.stderr)
+        print(request.form.get("Weight"), file=sys.stderr)
+        print(request.form.get("TouchScreen"), file=sys.stderr)
+        print(request.form.get("IPS"), file=sys.stderr)
+        print(request.form.get("PPI"), file=sys.stderr)
+        print(request.form.get("Cpu_brand"), file=sys.stderr)
+        print(request.form.get("HDD"), file=sys.stderr)
+        print(request.form.get("SSD"), file=sys.stderr)
+        print(request.form.get("Gpu_brand"), file=sys.stderr)
+        print(request.form.get("os"), file=sys.stderr)
         prediction_input = [
             {
                 "Company": str(request.form.get("Company")),  # getting input with name = ntp in HTML form

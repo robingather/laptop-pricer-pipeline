@@ -34,7 +34,7 @@ class LaptopPricePredictor:
         if self.model is None:
             self.download_model()
         #print(json.dumps(prediction_input))
-        df = pd.read_json(prediction_input, orient='records')
+        df = pd.read_json(json.dumps(prediction_input), orient='records')
         print(df)
         y_pred = self.model.predict(df)
         print(y_pred[0])
