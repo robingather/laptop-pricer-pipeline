@@ -25,7 +25,7 @@ def predict_str():
 # A decorator used to tell the application
 # which URL is associated function
 @app.route('/price_laptop', methods=["GET", "POST"])
-def check_diabetes():
+def price_laptop():
     if request.method == "POST":
         print(request.form.get("Company"), file=sys.stderr)
         print(request.form.get("TypeName"), file=sys.stderr)
@@ -39,14 +39,14 @@ def check_diabetes():
         print(request.form.get("SSD"), file=sys.stderr)
         print(request.form.get("Gpu_brand"), file=sys.stderr)
         print(request.form.get("os"), file=sys.stderr)
-        prediction_input = [
+        prediction_input = [    
             {
                 "Company": str(request.form.get("Company")),  # getting input with name = ntp in HTML form
                 "TypeName": str(request.form.get("TypeName")),  # getting input with name = pgc in HTML form
                 "Ram": int(request.form.get("Ram")),
                 "Weight": float(request.form.get("Weight")),
-                "TouchScreen": int(1 if request.form.get("TouchScreen") is 'on' else 0),
-                "IPS": int(1 if request.form.get("IPS") is 'on' else 0),
+                "TouchScreen": int(1 if request.form.get("TouchScreen") == 'on' else 0),
+                "IPS": int(1 if request.form.get("IPS") == 'on' else 0),
                 "PPI": float(request.form.get("PPI")),
                 "Cpu_brand": str(request.form.get("Cpu_brand")),
                 "HDD": int(request.form.get("HDD")),

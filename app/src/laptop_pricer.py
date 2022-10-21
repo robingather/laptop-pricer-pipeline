@@ -36,8 +36,9 @@ class LaptopPricePredictor:
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
         #print(df)
-        y_pred = self.model.predict(prediction_input)
+        X = prediction_input.loc[:, ["Company","TypeName","Ram","Weight","TouchScreen","IPS","PPI","Cpu_brand","HDD","SSD","Gpu brand","os"]].values
+        y_pred = self.model.predict(X)
         print(y_pred[0])
         print(type(y_pred[0]))
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
-        return jsonify({'result': str(y_pred[0])}), 200
+        return jsonify({'result': float(y_pred[0])}), 200
