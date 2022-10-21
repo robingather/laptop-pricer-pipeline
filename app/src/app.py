@@ -44,8 +44,8 @@ def check_diabetes():
         ]
         print(prediction_input)
         dp = LaptopPricePredictor()
-        df = pd.read_json(json.dumps(prediction_input), orient='records')
-        status = dp.predict_single_record(df)
+        df_json = json.dumps(prediction_input)
+        status = dp.predict_single_record(df_json)
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(status[0])}), 200
 

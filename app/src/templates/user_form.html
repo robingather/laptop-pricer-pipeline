@@ -4,7 +4,7 @@
 <form action="/price_laptop" method="POST">
     <h1>What price is this laptop???</h1>
     <p>Welcome to the greatest, most accurate (80% accurate) model you've ever seen.</p>
-    <img src="laptopmoney.png" alt="Laptop Money">
+    <img src="./laptopmoney.png" alt="Laptop Money">
     <p>Enter your specs below and watch the magic price prediction happen before your eyes.<br>Is your option not in the list? Too bad. Pick the closest one or try another laptop.</p>
 
     <!-- Apple, HP, Acer, Asus, Dell, Lenovo, MSI, Microsoft, Toshiba, Xiaomi, Razer, Vero, Huawei, Chuwi, Mediacom, Samsung, Fujitsu, LG-->
@@ -54,7 +54,7 @@
     <input type="checkbox" id="IPS" name="IPS"> <br>
 
     <label for="PPI">Pixels Per Inch (Resolution / Screen size):</label>
-    <input type="number" id="PPI" min="100" max="300" name="PPI"> <br>
+    <input type="number" id="PPI" min="100" max="300" name="PPI" placeholder="200.0"> <br>
 
     <label for="Cpu_brand">CPU (What kind of CPU is in it?):</label>
     <select id="Cpu_brand" name="Cpu_brand">
@@ -66,10 +66,10 @@
     </select><br>
 
     <label for="HDD">HDD Capacity (How much HDD space u got in Gb?):</label>
-    <input type="number" id="HDD" name="HDD"> <br>
+    <input type="number" id="HDD" name="HDD" placeholder="500"> <br>
 
     <label for="SSD">SSD Capacity (How much SSD space u got in Gb?):</label>
-    <input type="number" id="SSD" min="0" max="2000" name="SSD"> <br>
+    <input type="number" id="SSD" min="0" max="2000" name="SSD" placeholder="128"> <br>
 
     <label for="Gpu_brand">GPU Brand (What brand of GPU is in it?):</label>
     <select id="Gpu_brand" name="Gpu_brand">
