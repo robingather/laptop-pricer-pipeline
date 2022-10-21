@@ -29,14 +29,14 @@ class LaptopPricePredictor:
         print("downloaded model")
         return jsonify({'message': " the model was downloaded"}), 200
 
-    def predict_single_record(self, prediction_input):
+    def predict_single_record(self, prediction_input: pd.DataFrame):
         print(prediction_input)
         if self.model is None:
             self.download_model()
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
         #print(df)
-        X = prediction_input.loc[:, ["Company","TypeName","Ram","Weight","TouchScreen","IPS","PPI","Cpu_brand","HDD","SSD","Gpu brand","os"]].values
+        X = prediction_input.to_numpy()
         y_pred = self.model.predict(X)
         print(y_pred[0])
         print(type(y_pred[0]))
