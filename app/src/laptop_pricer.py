@@ -2,6 +2,7 @@ import json
 import os
 
 import pandas as pd
+import pickle
 from flask import jsonify
 from google.cloud import storage
 from keras.models import load_model
@@ -20,8 +21,8 @@ class LaptopPricePredictor:
         client = storage.Client(project=project_id)
         bucket = client.get_bucket(model_repo)
         blob = bucket.blob(model_name)
-        blob.download_to_filename('local_model.h5')
-        self.model = load_model('local_model.h5')
+        blob.download_to_filename('local_model.pkl')
+        self.model = pickle.load(open('local_model.pkl', 'rb'))
         print("downloaded model")
         return jsonify({'message': " the model was downloaded"}), 200
 

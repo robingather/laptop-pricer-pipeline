@@ -2,31 +2,88 @@
 <body>
 
 <form action="/price_laptop" method="POST">
-    <h1> Check My Diabetes</h1>
-    <label for="ntp">Number of times pregnant:</label>
-    <input type="text" id="ntp" name="ntp" placeholder="ntp"> <br>
+    <h1>What price is this laptop???</h1>
+    <p>Welcome to the greatest, most accurate (80% accurate) model you've ever seen.</p>
+    <p>Enter your specs below and watch the magic price prediction happen before your eyes.</p>
+    <p>Is your option not in the list? Too bad. Pick the closest one or try another laptop.</p>
 
-    <label for="pgc">Plasma glucose concentration a 2 hours in an oral glucose tolerance test:</label>
-    <input type="text" id="pgc" name="pgc" placeholder="pgc"> <br>
+    <!-- Apple, HP, Acer, Asus, Dell, Lenovo, MSI, Microsoft, Toshiba, Xiaomi, Razer, Vero, Huawei, Chuwi, Mediacom, Samsung, Fujitsu, LG-->
+    <label for="Company">Company (Who made your laptop?):</label>
+    <select id="Company" name="Company">
+        <option value="Dell">Dell</option>
+        <option value="Lenovo">Lenovo</option>
+        <option value="HP">HP</option>
+        <option value="Asus">Asus</option>
+        <option value="Acer">Acer</option>
+        <option value="MSI">MSI</option>
+        <option value="Toshiba">Toshiba</option>
+        <option value="Apple">Apple</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Razer">Razer</option>
+        <option value="Mediacom">Mediacom</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="Vero">Vero</option>
+        <option value="Chuwi">Chuwi</option>
+        <option value="Google">Google</option>
+        <option value="Fujitsu">Fujitsu</option>
+        <option value="LG">LG</option>
+        <option value="Huawei">Huawei</option>
+    </select><br>
 
-    <label for="dbp">Diastolic blood pressure (mm Hg):</label>
-    <input type="text" id="dbp" name="dbp" placeholder="dbp"> <br>
+    <label for="TypeName">Type (Who kind of laptop is it?):</label>
+    <select id="TypeName" name="TypeName">
+        <option value="Notebook">Notebook</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Ultrabook">Ultrabook</option>
+        <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+        <option value="Workstation">Workstation</option>
+        <option value="Netbook">Netbook</option>
+    </select><br>
 
-    <label for="tsft">Triceps skin fold thickness (mm):</label>
-    <input type="text" id="tsft" name="tsft" placeholder="tsft"> <br>
+    <label for="Ram">Ram (How much dedicated wam?):</label>
+    <input type="number" id="Ram" name="Ram", max="128Gb", min="2Gb", step="2Gb" placeholder="69Gb"> <br>
 
-    <label for="si">2-Hour serum insulin (mu U/ml):</label>
-    <input type="text" id="si" name="si" placeholder="si"> <br>
+    <label for="Weight">Weight (How fat is ur laptop in kg?):</label>
+    <input type="text" id="Weight" name="Weight" placeholder="4.20"> <br>
 
-    <label for="bmi">Body mass index:</label>
-    <input type="text" id="bmi" name="bmi" placeholder="bmi"> <br>
+    <label for="TouchScreen">TouchScreen (Is this touch screen?):</label>
+    <input type="checkbox" id="TouchScreen" name="TouchScreen"> <br>
 
-    <label for="dpf">Diabetes pedigree function:</label>
-    <input type="text" id="dpf" name="dpf" placeholder="dpf"> <br>
+    <label for="IPS">IPS (Does it have a fancy IPS display?):</label>
+    <input type="checkbox" id="IPS" name="IPS"> <br>
 
-    <label for="age">Age (years):</label>
-    <input type="text" id="age" name="age" placeholder="age"> <br>
-    <p><input type='submit' value='Check'/></p>
+    <label for="PPI">Pixels Per Inch (Resolution / Screen size):</label>
+    <input type="number" id="IPS", min="100", max="300" name="PPI"> <br>
+
+    <label for="Cpu_brand">CPU (What kind of CPU is in it?):</label>
+    <select id="Cpu_brand" name="Cpu_brand">
+        <option value="Intel Core i7">Intel Core i7</option>
+        <option value="Intel Core i5">Intel Core i5</option>
+        <option value="Intel Core i3">Intel Core i3</option>
+        <option value="Other Intel Processor">Other Intel Processor</option>
+        <option value="AMD Processor">AMD Processor</option>
+    </select><br>
+
+    <label for="HDD">HDD Capacity (How much HDD space u got?):</label>
+    <input type="number" id="HDD", min="0", max="4000" name="HDD Capacity"> <br>
+
+    <label for="SSD">SSD Capacity (How much SSD space u got?):</label>
+    <input type="number" id="SSD", min="0", max="2000" name="SSD Capacity"> <br>
+
+    <label for="Gpu brand">GPU Brand (What brand of GPU is in it?):</label>
+    <select id="Gpu brand" name="Gpu brand">
+        <option value="Intel">Intel</option>
+        <option value="AMD">AMD</option>
+        <option value="Nvidia">Nvidia</option>
+    </select><br>
+
+    <label for="os">Operating System (What does it run?):</label>
+    <select id="os" name="os">
+        <option value="Windows">Intel</option>
+        <option value="Mac">AMD</option>
+        <option value="Linux / Other / No OS">Nvidia</option>
+    </select><br>
 </form>
 
 </body>

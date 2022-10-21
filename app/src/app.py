@@ -17,8 +17,8 @@ def refresh_model():
 @app.route('/laptop_pricer', methods=['POST'])  # path of the endpoint. Except only HTTP POST request
 def predict_str():
     # the prediction input data in the message body as a JSON payload
-    prediction_inout = request.get_json()
-    return dp.predict_single_record(prediction_inout)
+    prediction_input = request.get_json()
+    return dp.predict_single_record(prediction_input)
 
 
 # A decorator used to tell the application
