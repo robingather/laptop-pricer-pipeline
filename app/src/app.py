@@ -1,9 +1,7 @@
 import os
 
 from flask import Flask, request
-from app.src.laptop_pricer import LaptopPricePredictor
-
-from diabetes_predictor import DiabetesPredictor
+from laptop_pricer import LaptopPricePredictor
 
 app = Flask(__name__)
 app.config["DEBUG"] = True

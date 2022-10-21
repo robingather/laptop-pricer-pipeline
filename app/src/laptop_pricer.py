@@ -13,6 +13,7 @@ class LaptopPricePredictor:
 
     # download the model
     def download_model(self):
+        print("thank the lord u made it here")
         project_id = os.environ.get('PROJECT_ID', 'Specified environment variable is not set.')
         model_repo = os.environ.get('MODEL_REPO', 'Specified environment variable is not set.')
         model_name = os.environ.get('MODEL_NAME', 'Specified environment variable is not set.')
@@ -21,6 +22,7 @@ class LaptopPricePredictor:
         blob = bucket.blob(model_name)
         blob.download_to_filename('local_model.h5')
         self.model = load_model('local_model.h5')
+        print("downloaded model")
         return jsonify({'message': " the model was downloaded"}), 200
 
     def predict_single_record(self, prediction_input):
