@@ -28,14 +28,18 @@ def check_diabetes():
     if request.method == "POST":
         prediction_input = [
             {
-                "ntp": int(request.form.get("ntp")),  # getting input with name = ntp in HTML form
-                "pgc": int(request.form.get("pgc")),  # getting input with name = pgc in HTML form
-                "dbp": int(request.form.get("dbp")),
-                "tsft": int(request.form.get("tsft")),
-                "si": int(request.form.get("si")),
-                "bmi": float(request.form.get("bmi")),
-                "dpf": float(request.form.get("dpf")),
-                "age": int(request.form.get("age"))
+                "Company": str(request.form.get("Company")),  # getting input with name = ntp in HTML form
+                "TypeName": str(request.form.get("TypeName")),  # getting input with name = pgc in HTML form
+                "Ram": int(request.form.get("Ram")),
+                "Weight": float(request.form.get("Weight")),
+                "TouchScreen": int(request.form.get("TouchScreen")),
+                "IPS": int(request.form.get("IPS")),
+                "PPI": float(request.form.get("PPI")),
+                "Cpu_brand": str(request.form.get("Cpu_brand")),
+                "HDD": int(request.form.get("HDD")),
+                "SSD": int(request.form.get("SSD")),
+                "Gpu brand": str(request.form.get("Gpu brand")),
+                "os": str(request.form.get("os"))
             }
         ]
         print(prediction_input)

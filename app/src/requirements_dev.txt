@@ -1,9 +1,7 @@
 flask
 pandas
-keras
-tensorflow
 numpy
-h5py
 six
 pytest
 google-cloud-storage
+scikit-learn

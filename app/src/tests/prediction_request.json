@@ -1,12 +1,17 @@
 [
     {
-      "ntp": 1,
-      "pgc": 126,
-      "dbp": 60,
-      "tsft": 0,
-      "si": 0,
-      "bmi": 30.1,
-      "dpf": 0.349,
-      "age": 47
+        "Company": "Apple",
+        "TypeName": "Ultrabook",
+        "Ram": 8,
+        "Weight": 1.37,
+        "TouchScreen": 0,
+        "IPS": 1,
+        "PPI": 226,
+        "Cpu_brand":"Intel Core i5",
+        "HDD": 0,
+        "SSD": 128,
+        "Gpu brand":"Intel",
+        "os":"Mac"
     }
   ]
+  

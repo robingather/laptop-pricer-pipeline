@@ -5,8 +5,11 @@ import pandas as pd
 import pickle
 from flask import jsonify
 from google.cloud import storage
-from keras.models import load_model
-
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.ensemble import RandomForestRegressor        
+from sklearn.linear_model import LinearRegression        
 
 class LaptopPricePredictor:
     def __init__(self):
@@ -35,7 +38,6 @@ class LaptopPricePredictor:
         print(df)
         y_pred = self.model.predict(df)
         print(y_pred[0])
-        status = (y_pred[0] > 0.5)
-        print(type(status[0]))
+        print(type(y_pred[0]))
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
-        return jsonify({'result': str(status[0])}), 200
+        return jsonify({'result': str(y_pred[0])}), 200
