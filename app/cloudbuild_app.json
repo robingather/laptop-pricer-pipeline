@@ -1,6 +1,15 @@
 {
     "steps": [
       {
+        "name": "python",
+        "entrypoint": "/bin/sh",
+        "args": [
+          "-c",
+          "cd ./app && python -m venv .myenv && . .myenv/bin/activate && pip install -r requirements_dev.txt && python -m pytest --junitxml=${SHORT_SHA}_test_log.xml",
+          "--user"
+        ]
+      },
+      {
         "name": "gcr.io/cloud-builders/docker",
         "args": [
           "build",
@@ -30,8 +39,6 @@
           "--platform",
           "managed",
           "--allow-unauthenticated",
-          "--update-env-vars",
-          "PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_rgather,MODEL_NAME=laptop-pricer-model.pkl",
           "--no-cpu-throttling",
           "--memory",
           "4 Gi"
