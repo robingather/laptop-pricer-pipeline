@@ -1,0 +1,40 @@
+name: Train test split
+description: train_test_split
+inputs:
+- {name: dataset, type: Dataset}
+outputs:
+- {name: dataset_train, type: Dataset}
+- {name: dataset_test, type: Dataset}
+implementation:
+  container:
+    image: python:3.10.7-slim
+    command:
+    - sh
+    - -c
+    - |2
+
+      if ! [ -x "$(command -v pip)" ]; then
+          python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip
+      fi
+
+      PIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'pandas' 'scikit-learn' 'kfp==1.8.14' && "$0" "$@"
+    - sh
+    - -ec
+    - |
+      program_path=$(mktemp -d)
+      printf "%s" "$0" > "$program_path/ephemeral_component.py"
+      python3 -m kfp.v2.components.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+    - "\nimport kfp\nfrom kfp.v2 import dsl\nfrom kfp.v2.dsl import *\nfrom typing\
+      \ import *\n\ndef train_test_split(dataset: Input[Dataset], dataset_train: Output[Dataset],\
+      \ dataset_test: Output[Dataset]):\n    '''train_test_split'''\n    import pandas\
+      \ as pd\n    import logging \n    import sys\n    from sklearn.model_selection\
+      \ import train_test_split as tts\n\n    logging.basicConfig(stream=sys.stdout,\
+      \ level=logging.INFO) \n\n    alldata = pd.read_csv(dataset.path, index_col=0)\n\
+      \    train, test = tts(alldata, test_size=0.15)\n    train.to_csv(dataset_train.path\
+      \ + \".csv\" , index=False, encoding='utf-8-sig')\n    test.to_csv(dataset_test.path\
+      \ + \".csv\" , index=False, encoding='utf-8-sig')\n\n"
+    args:
+    - --executor_input
+    - {executorInput: null}
+    - --function_to_execute
+    - train_test_split
