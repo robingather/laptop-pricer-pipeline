@@ -7,7 +7,7 @@ from google.cloud import storage
 from keras.models import load_model
 
 
-class DiabetesPredictor:
+class LaptopPricePredictor:
     def __init__(self):
         self.model = None
 

@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, request
+from app.src.laptop_pricer import LaptopPricePredictor
 
 from diabetes_predictor import DiabetesPredictor
 
@@ -20,5 +21,5 @@ def predict_str():
     return dp.predict_single_record(prediction_inout)
 
 
-dp = DiabetesPredictor()
+dp = LaptopPricePredictor()
 app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)
