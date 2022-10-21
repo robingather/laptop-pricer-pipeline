@@ -26,14 +26,26 @@ def predict_str():
 @app.route('/price_laptop', methods=["GET", "POST"])
 def check_diabetes():
     if request.method == "POST":
+        print(request.form.get("Company"))
+        print(request.form.get("TypeName"))
+        print(request.form.get("Ram"))
+        print(request.form.get("Weight"))
+        print(request.form.get("TouchScreen"))
+        print(request.form.get("IPS"))
+        print(request.form.get("PPI"))
+        print(request.form.get("Cpu_brand"))
+        print(request.form.get("HDD"))
+        print(request.form.get("SSD"))
+        print(request.form.get("Gpu_brand"))
+        print(request.form.get("os"))
         prediction_input = [
             {
                 "Company": str(request.form.get("Company")),  # getting input with name = ntp in HTML form
                 "TypeName": str(request.form.get("TypeName")),  # getting input with name = pgc in HTML form
                 "Ram": int(request.form.get("Ram")),
                 "Weight": float(request.form.get("Weight")),
-                "TouchScreen": str(request.form.get("TouchScreen")),
-                "IPS": str(request.form.get("IPS")),
+                "TouchScreen": int(1 if request.form.get("TouchScreen") is 'on' else 0),
+                "IPS": int(1 if request.form.get("IPS") is 'on' else 0),
                 "PPI": float(request.form.get("PPI")),
                 "Cpu_brand": str(request.form.get("Cpu_brand")),
                 "HDD": int(request.form.get("HDD")),
@@ -44,8 +56,8 @@ def check_diabetes():
         ]
         print(prediction_input)
         dp = LaptopPricePredictor()
-        df_json = json.dumps(prediction_input)
-        status = dp.predict_single_record(df_json)
+        df = pd.read_json(json.dumps(prediction_input), orient='records')
+        status = dp.predict_single_record(df)
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(status[0])}), 200
 
