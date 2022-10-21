@@ -38,7 +38,7 @@ def check_diabetes():
                 "Cpu_brand": str(request.form.get("Cpu_brand")),
                 "HDD": int(request.form.get("HDD")),
                 "SSD": int(request.form.get("SSD")),
-                "Gpu brand": str(request.form.get("Gpu brand")),
+                "Gpu brand": str(request.form.get("Gpu_brand")),
                 "os": str(request.form.get("os"))
             }
         ]
