@@ -1,6 +1,6 @@
 {
   "project_id": "de2022-362710",
   "data_bucket": "data_rgather",
-  "trainset_filename": "laptop_price_processed.csv",
+  "dataset_uri": "gs://data_rgather/laptop_price_processed.csv",
   "model_repo": "model_repo_rgather"
 }
