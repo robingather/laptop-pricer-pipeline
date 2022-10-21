@@ -34,9 +34,9 @@ class LaptopPricePredictor:
         if self.model is None:
             self.download_model()
         #print(json.dumps(prediction_input))
-        df = pd.read_json(json.dumps(prediction_input), orient='records')
-        print(df)
-        y_pred = self.model.predict(df)
+        #df = pd.read_json(json.dumps(prediction_input), orient='records')
+        #print(df)
+        y_pred = self.model.predict(prediction_input)
         print(y_pred[0])
         print(type(y_pred[0]))
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
