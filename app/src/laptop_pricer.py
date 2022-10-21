@@ -5,12 +5,7 @@ import pandas as pd
 import pickle
 from flask import jsonify
 from google.cloud import storage
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.ensemble import RandomForestRegressor        
-from sklearn.linear_model import LinearRegression        
-import numpy as np
+import sys
 
 class LaptopPricePredictor:
     def __init__(self):
@@ -32,12 +27,14 @@ class LaptopPricePredictor:
 
     def predict_single_record(self, prediction_input):
         print(prediction_input)
-        if self.model is None:
-            self.download_model()
+        #if self.model is None:
+        #    self.download_model()
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
-        #print(df)
-        y_pred = self.model.predict(np.array(prediction_input).resize(-1,1))
+        print("hEY", file=sys.stderr)
+        print(prediction_input.values,  file=sys.stderr)
+        print(prediction_input.values[0],  file=sys.stderr)
+        y_pred = self.model.predict(prediction_input.values)
         print(y_pred[0])
         print(type(y_pred[0]))
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion

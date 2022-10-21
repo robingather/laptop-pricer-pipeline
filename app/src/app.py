@@ -57,7 +57,7 @@ def price_laptop():
         ]
         print(prediction_input)
         dp = LaptopPricePredictor()
-        df = pd.read_json(json.dumps(prediction_input), orient='records')
+        df = pd.read_json(json.dumps(prediction_input), orient='values')
         status = dp.predict_single_record(df)
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(status[0])}), 200
