@@ -1,6 +1,6 @@
 {
-  "project_id": "your projec id",
-  "data_bucket": "your data bucket",
-  "trainset_filename": "training_set.csv",
-  "model_repo": "your project model repo"
+  "project_id": "de2022-362710",
+  "data_bucket": "data_rgather",
+  "trainset_filename": "laptop_price_processed.csv",
+  "model_repo": "model_repo_rgather"
 }
