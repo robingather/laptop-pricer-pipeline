@@ -7,7 +7,7 @@ import json
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-
+dp = LaptopPricePredictor()
 
 @app.route('/laptop_pricer/model', methods=['PUT'])  # trigger updating the model
 def refresh_model():
@@ -21,13 +21,9 @@ def predict_str():
     return dp.predict_single_record(prediction_inout)
 
 
-dp = LaptopPricePredictor()
-app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)
-
-
 # A decorator used to tell the application
 # which URL is associated function
-@app.route('/checkdiabetes', methods=["GET", "POST"])
+@app.route('/price_laptop', methods=["GET", "POST"])
 def check_diabetes():
     if request.method == "POST":
         prediction_input = [
@@ -54,3 +50,5 @@ def check_diabetes():
 
 if __name__ == '__main__':
     app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)
+
+app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)
