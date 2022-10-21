@@ -5,9 +5,7 @@
         "entrypoint": "/bin/sh",
         "args": [
           "-c",
-          "--update-env-vars",
-          "PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_rgather,MODEL_NAME=laptop_pricer_model.pkl",
-          "cd ./app/src && python -m venv .myenv && . .myenv/bin/activate && pip install -r requirements_dev.txt && python -m pytest --junitxml=${SHORT_SHA}_test_log.xml",
+          "cd ./app/src && python -m venv .myenv && . .myenv/bin/activate && pip install -r requirements_dev.txt",
           "--user"
         ]
       },
@@ -40,6 +38,8 @@
           "us-central1",
           "--platform",
           "managed",
+          "--update-env-vars",
+          "PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_rgather,MODEL_NAME=laptop_pricer_model.pkl",
           "--allow-unauthenticated",
           "--no-cpu-throttling",
           "--memory",
