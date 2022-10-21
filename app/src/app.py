@@ -32,8 +32,8 @@ def check_diabetes():
                 "TypeName": str(request.form.get("TypeName")),  # getting input with name = pgc in HTML form
                 "Ram": int(request.form.get("Ram")),
                 "Weight": float(request.form.get("Weight")),
-                "TouchScreen": int(request.form.get("TouchScreen")),
-                "IPS": int(request.form.get("IPS")),
+                "TouchScreen": str(request.form.get("TouchScreen")),
+                "IPS": str(request.form.get("IPS")),
                 "PPI": float(request.form.get("PPI")),
                 "Cpu_brand": str(request.form.get("Cpu_brand")),
                 "HDD": int(request.form.get("HDD")),
