@@ -1,0 +1,4 @@
+The original data is from kaggle (https://www.kaggle.com/datasets/muhammetvarl/laptop-price)
+uploaded by user Muhammet Varli.
+
+The model and processing of the data is done by Nitech Kumar (https://www.kaggle.com/code/niteshk97/laptop-price-prediction-88-60)
