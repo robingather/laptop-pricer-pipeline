@@ -32,7 +32,7 @@ class LaptopPricePredictor:
     def predict_single_record(self, prediction_input):
         print(prediction_input)
         if self.model is None:
-           self.download_model()
+           self.download_test_model()
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
         print("hEY", file=sys.stderr)
@@ -47,4 +47,16 @@ class LaptopPricePredictor:
         # print(float(y_pred[0][0]))
         # print(type(y_pred[0]))
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
-        return jsonify({'result': str(y_pred[0][0])}), 200
+
+        result = y_pred[0]
+        try:
+            result[0]
+            result = result[0]
+        except IndexError:
+            print("whoops")
+        
+
+        #print("RESULT="+str(result), file=sys.stderr)
+        #if(isinstance(result, list)):
+        #    result = y_pred[0][0]
+        return jsonify({'result': str(result)}), 200
