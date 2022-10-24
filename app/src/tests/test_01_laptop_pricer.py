@@ -8,12 +8,12 @@ import laptop_pricer
 class TestLaptopPricer:
     def test_predict_single_record(self):
         with open('testResources/prediction_request.json') as json_file:
-            data = pd.read_json(json_file)
+            data = pd.read_json(json_file, orient='records')
         dp = laptop_pricer.LaptopPricePredictor()
         print(data)
         print(data.values)
         print("testing")
-        y_pred = dp.predict_single_record(data.values)
+        y_pred = dp.predict_single_record(data)
         print("prediction=",y_pred)
 
         result = y_pred[0]
