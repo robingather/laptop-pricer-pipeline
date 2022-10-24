@@ -1,6 +1,5 @@
 # content of test_sysexit.py
 import pandas as pd
-import app
 
 # content of test_class.py
 import laptop_pricer
@@ -31,4 +30,3 @@ class TestLaptopPricer:
         assert result > 0 # you shouldn't be paid to buy a laptop
         print("assertion 3")
         assert str(result).isnumeric() # should be a number
-        flaskr.app.config['TESTING'] = False
