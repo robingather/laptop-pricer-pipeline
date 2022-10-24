@@ -12,7 +12,7 @@ class LaptopPricePredictor:
         self.model = None
 
     def download_test_model(self):
-        self.model = pickle.load(open('tests/laptop_pricer_model.pkl', 'rb'))
+        self.model = pickle.load(open('testResources/laptop_pricer_model.pkl', 'rb'))
         print("downloaded test model")
         return jsonify({'message': " the model was downloaded"}), 200
 
