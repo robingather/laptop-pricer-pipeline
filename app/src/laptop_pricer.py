@@ -14,7 +14,7 @@ class LaptopPricePredictor:
     def download_test_model(self):
         self.model = pickle.load(open('testResources/laptop_pricer_model.pkl', 'rb'))
         print("downloaded test model")
-        return jsonify({'message': " the model was downloaded"}), 200
+        #return jsonify({'message': " the model was downloaded"}), 200
 
     # download the model
     def download_model(self):
@@ -27,7 +27,7 @@ class LaptopPricePredictor:
         blob.download_to_filename('local_model.pkl')
         self.model = pickle.load(open('local_model.pkl', 'rb'))
         print("downloaded model")
-        return jsonify({'message': " the model was downloaded"}), 200
+        #return jsonify({'message': " the model was downloaded"}), 200
 
     def predict_single_record(self, prediction_input):
         print(prediction_input)
