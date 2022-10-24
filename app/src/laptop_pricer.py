@@ -29,7 +29,7 @@ class LaptopPricePredictor:
         print("downloaded model")
         #return jsonify({'message': " the model was downloaded"}), 200
 
-    def predict_single_record(self, prediction_input):
+    def predict_single_record(self, prediction_input, asjson = True):
         print(prediction_input)
         if self.model is None:
            self.download_test_model()
@@ -59,4 +59,7 @@ class LaptopPricePredictor:
         #print("RESULT="+str(result), file=sys.stderr)
         #if(isinstance(result, list)):
         #    result = y_pred[0][0]
-        return jsonify({'result': str(result)}), 200
+        if asjson:
+            return jsonify({'result': str(result)}), 200
+        else:
+            return result
