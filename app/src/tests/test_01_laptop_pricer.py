@@ -10,7 +10,11 @@ class TestLaptopPricer:
         with open('testResources/prediction_request.json') as json_file:
             data = pd.read_json(json_file)
         dp = laptop_pricer.LaptopPricePredictor()
+        print(data)
+        print(data.values)
+        print("testing")
         y_pred = dp.predict_single_record(data.values)
+        print("prediction=",y_pred)
 
         result = y_pred[0]
         try:
