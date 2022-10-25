@@ -3,4 +3,3 @@ pandas
 numpy
 six
 google-cloud-storage
-scikit-learn
