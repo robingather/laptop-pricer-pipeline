@@ -3,3 +3,4 @@ pandas
 six
 google-cloud-storage
 scikit-learn
+setuptools==58.2.0
