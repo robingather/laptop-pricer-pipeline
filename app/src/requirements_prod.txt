@@ -1,6 +1,5 @@
 flask
 pandas
 six
-openblas
 google-cloud-storage
 scikit-learn
