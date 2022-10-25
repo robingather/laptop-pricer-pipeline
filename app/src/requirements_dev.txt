@@ -1,6 +1,5 @@
 flask
 pandas
-numpy
 six
 pytest
 google-cloud-storage
