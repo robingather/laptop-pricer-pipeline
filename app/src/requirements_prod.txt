@@ -1,6 +1,6 @@
 flask
 pandas
-six
 numpy
+six
 google-cloud-storage
 scikit-learn
