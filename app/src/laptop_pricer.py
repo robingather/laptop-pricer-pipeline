@@ -31,7 +31,7 @@ class LaptopPricePredictor:
     def predict_single_record(self, prediction_input, asjson = True):
         print(prediction_input)
         if self.model is None:
-           self.download_test_model()
+           self.download_model()
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
         print("hEY", file=sys.stderr)
