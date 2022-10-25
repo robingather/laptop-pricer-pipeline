@@ -1,6 +1,7 @@
 flask
 pandas
+numpy
 six
+pytest
 google-cloud-storage
 scikit-learn
-pytest
