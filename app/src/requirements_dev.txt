@@ -2,5 +2,6 @@ flask
 pandas
 six
 pytest
+openblas
 google-cloud-storage
 scikit-learn
