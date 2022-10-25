@@ -12,6 +12,8 @@ COPY . .
 EXPOSE 5000
 # Enviroment Variables
 ENV MODEL_NAME=laptop_pricer_model.pkl
+ENV PROJECT_ID=de2022-362710
+ENV MODEL_REPO=model_repo_rgather
 # Run our App
 CMD ["python3","app.py"]
 # We can also use an ENTRYPOINT and a CMD

@@ -26,7 +26,7 @@ class TestLaptopPricer:
 
         print("assertion 1")
         assert result is not None
-        print("assertion 1")
-        assert result > 0 # you shouldn't be paid to buy a laptop
-        print("assertion 3")
+        print("assertion 2")
         assert str(int(result)).isnumeric() # should be a number
+        print("assertion 3")
+        assert result > 0 # you shouldn't be paid to buy a laptop
