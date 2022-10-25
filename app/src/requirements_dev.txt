@@ -4,4 +4,3 @@ six
 google-cloud-storage
 scikit-learn
 pytest
-setuptools==58.2.0
