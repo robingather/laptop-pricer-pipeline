@@ -28,9 +28,11 @@ class LaptopPricePredictor:
         print("downloaded model")
         return jsonify({'message': " the model was downloaded"}), 200
 
-    def predict_single_record(self, prediction_input, asjson = True):
+    def predict_single_record(self, prediction_input, test = False):
         print(prediction_input)
-        if self.model is None:
+        if self.model is None and test:
+           self.download_test_model()
+        elif self.model is None and not test:
            self.download_model()
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
@@ -58,7 +60,7 @@ class LaptopPricePredictor:
         #print("RESULT="+str(result), file=sys.stderr)
         #if(isinstance(result, list)):
         #    result = y_pred[0][0]
-        if asjson:
-            return jsonify({'result': str(result)}), 200
+        if test:
+            return result # if I return a jsonified result with 200 http code during testing, it will give the error that the Flask context is not initialized.
         else:
-            return result
+            return jsonify({'result': str(result)}), 200

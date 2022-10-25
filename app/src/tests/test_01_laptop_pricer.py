@@ -14,7 +14,7 @@ class TestLaptopPricer:
         print(data)
         print(data.values)
         print("testing")
-        y_pred = dp.predict_single_record(data,asjson=False)
+        y_pred = dp.predict_single_record(data,test=True)
         print("prediction=",y_pred)
 
         result = y_pred
