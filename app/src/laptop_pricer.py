@@ -34,32 +34,19 @@ class LaptopPricePredictor:
            self.download_test_model()
         elif not test:
            self.download_model()
-        #print(json.dumps(prediction_input))
-        #df = pd.read_json(json.dumps(prediction_input), orient='records')
-        print("hEY", file=sys.stderr)
+
         print(prediction_input.values,  file=sys.stderr)
         print(prediction_input.values[0],  file=sys.stderr)
-        print("gonna predithtttt")
         y_pred = self.model.predict(prediction_input.values)
-        # print(y_pred[0])
-        # print(y_pred[0][0])
-        # print(y_pred[0,0])
-        # print(float(y_pred[0]))
-        # print(float(y_pred[0][0]))
-        # print(type(y_pred[0]))
-        # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
 
         result = y_pred[0]
         try:
             result[0]
             result = result[0]
         except IndexError:
-            print("whoops")
-        
+            print("is not a list")
 
-        #print("RESULT="+str(result), file=sys.stderr)
-        #if(isinstance(result, list)):
-        #    result = y_pred[0][0]
+        # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         if test:
             return result # if I return a jsonified result with 200 http code during testing, it will give the error that the Flask context is not initialized.
         else:

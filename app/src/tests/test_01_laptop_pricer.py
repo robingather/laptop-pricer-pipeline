@@ -22,7 +22,7 @@ class TestLaptopPricer:
             result[0]
             result = result[0]
         except IndexError:
-            print("whoops")         
+            print("is not a list")         
 
         print("assertion 1")
         assert result is not None

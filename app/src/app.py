@@ -26,23 +26,6 @@ def predict_str():
 @app.route('/price_laptop_ui', methods=["GET", "POST"])
 def price_laptop():
     if request.method == "POST":
-        # print(request)
-        # print(request.method)
-        # print(request.form)
-        # print(type(request.method))
-        # print(type(request.form.get("Ram")))
-        # print(request.form.get("Company"), file=sys.stderr)
-        # print(request.form.get("TypeName"), file=sys.stderr)
-        # print(request.form.get("Ram"), file=sys.stderr)
-        # print(request.form.get("Weight"), file=sys.stderr)
-        # print(request.form.get("TouchScreen"), file=sys.stderr)
-        # print(request.form.get("IPS"), file=sys.stderr)
-        # print(request.form.get("PPI"), file=sys.stderr)
-        # print(request.form.get("Cpu_brand"), file=sys.stderr)
-        # print(request.form.get("HDD"), file=sys.stderr)
-        # print(request.form.get("SSD"), file=sys.stderr)
-        # print(request.form.get("Gpu_brand"), file=sys.stderr)
-        # print(request.form.get("os"), file=sys.stderr)
         prediction_input = [    
             {
                 "Company": str(request.form.get("Company")),  # getting input with name = ntp in HTML form
@@ -63,12 +46,6 @@ def price_laptop():
         dp = LaptopPricePredictor()
         df = pd.read_json(json.dumps(prediction_input), orient='records')
         status = dp.predict_single_record(df)
-        # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
-        # print(status)
-        # print(status[0])
-        # print(type(status))
-        # print(type(status[0]))
-        # print(str(status[0]))
         return status[0], 200
 
     return render_template("user_form.html")  # this method is called of HTTP method is GET, e.g., when browsing the link
