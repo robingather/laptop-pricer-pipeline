@@ -30,9 +30,9 @@ class LaptopPricePredictor:
 
     def predict_single_record(self, prediction_input, test = False):
         print(prediction_input)
-        if self.model is None and test:
+        if test:
            self.download_test_model()
-        elif self.model is None and not test:
+        elif not test:
            self.download_model()
         #print(json.dumps(prediction_input))
         #df = pd.read_json(json.dumps(prediction_input), orient='records')
